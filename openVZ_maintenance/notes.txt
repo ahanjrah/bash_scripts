@@ -1,0 +1,60 @@
+If you get following error while running the ./master.sh, then the most probable reason is that the vars.sh is in dos format:
+
+--------------------------------------------------
+[root@centos6 openVZ_maintenance]# ./master.sh
+: command not found
+: command not found
+: command not found
+: command not found
+: command not found
+: command not found
+: command not found
+: command not found
+'/vars.sh: line 13: syntax error near unexpected token `{
+'/vars.sh: line 13: `stopCtid() {
+--------------------------------------------------
+
+In order to fix it, download and install "dos2unix" package: yum install dos2unix and run it on vars.sh:
+
+------------------------------------------------------------------------------------------------
+[root@centos6 openVZ_maintenance]# yum install dos2unix
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package dos2unix.x86_64 0:3.1-37.el6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+====================================================================================================================================================
+ Package                             Arch                              Version                                Repository                       Size
+====================================================================================================================================================
+Installing:
+ dos2unix                            x86_64                            3.1-37.el6                             base                             16 k
+
+Transaction Summary
+====================================================================================================================================================
+Install       1 Package(s)
+
+Total download size: 16 k
+Installed size: 18 k
+Is this ok [y/N]: y
+Downloading Packages:
+dos2unix-3.1-37.el6.x86_64.rpm                                                                                               |  16 kB     00:00
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : dos2unix-3.1-37.el6.x86_64                                                                                                       1/1
+  Verifying  : dos2unix-3.1-37.el6.x86_64                                                                                                       1/1
+
+Installed:
+  dos2unix.x86_64 0:3.1-37.el6
+
+Complete!
+[root@centos6 openVZ_maintenance]# dos2unix vars.sh
+dos2unix: converting file vars.sh to UNIX format ...
+------------------------------------------------------------------------------------------------
+
+Once completed, you should be able to run ./master.sh without any issues!
+Cheers!!!
