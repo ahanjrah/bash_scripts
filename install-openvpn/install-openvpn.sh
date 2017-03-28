@@ -6,8 +6,8 @@
 # URI: http://techlinux.net and http://phpnmysql.com
 # License: GNU GPL v2.0
 # Description: The script is used to install and configure OpenVPN.
+# Works on EL 6.x only
 #
-
 main() {
 	clear
 	echo -e "------------------"
