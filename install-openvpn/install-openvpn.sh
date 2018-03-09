@@ -8,7 +8,6 @@
 # Description: The script is used to install and configure OpenVPN.
 # Works on EL 6.x only
 #
-
 main() {
 	clear
 	echo -e "------------------"
