@@ -5,7 +5,7 @@
 # License: GNU GPL v2.0
 # Description: A simple script to add a new user along with user keys and disable password authentication and direct root logins.
 #
-# set -x
+set -x
 if [[ $# -lt 1 ]]; then
   echo "Please provide a username"
   echo "Usage: sh `basename $0` username"
